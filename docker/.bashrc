@@ -116,8 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-# source /opt/ros/kinetic/setup.bash
+#source the ROS environment
+source /opt/ros/noetic/setup.bash
 
 # mostra o nome da branch no terminal
 parse_git_branch() {
@@ -135,9 +135,5 @@ xterm*|rxvt*)
     ;;
 esac
 
-
-# export PATH=$PATH:/home/px/jiro_ws/src/jiro_test_logbook/_tools
-
-# export VISUAL=code
 
 
