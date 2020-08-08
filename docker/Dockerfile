@@ -1,5 +1,11 @@
 FROM osrf/ros:noetic-desktop-full-focal
 
+# nvidia-container-runtime
+ENV NVIDIA_VISIBLE_DEVICES \
+    ${NVIDIA_VISIBLE_DEVICES:-all}
+ENV NVIDIA_DRIVER_CAPABILITIES \
+    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+
 #install packages to enable work in this environment
 RUN export DEBIAN_FRONTEND=noninteractive; \
 	apt-get update && \
@@ -19,9 +25,18 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
 	
 RUN export LANGUAGE=en_US.UTF-8; \
     export LANG=en_US.UTF-8;
-#    export LC_ALL=en_US.UTF-8; \
-#    locale-gen en_US.UTF-8: \
-#    DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
-#RUN rm .bashrc
-#COPY .bashrc /root 
+# Dependencies for glvnd and X11.
+RUN apt-get update \
+  && apt-get install -y -qq --no-install-recommends \
+    libglvnd0 \
+    libgl1 \
+    libglx0 \
+    libegl1 \
+    libxext6 \
+    libx11-6 \
+  && rm -rf /var/lib/apt/lists/*
+
+#Add .bashrc file to the docker so it starts with a constumized environment
+RUN rm ./root/.bashrc
+COPY .bashrc /root 
