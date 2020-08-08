@@ -40,3 +40,4 @@ RUN apt-get update \
 #Add .bashrc file to the docker so it starts with a constumized environment
 RUN rm ./root/.bashrc
 COPY .bashrc /root 
+COPY .bash_aliases /root
