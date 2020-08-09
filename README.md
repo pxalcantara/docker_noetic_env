@@ -1,5 +1,5 @@
 # docker_noetic_env
-This project creats and configure an environment for development using ROS Noetic and docker. This project was created with a big help of [@ximenesfel](https://github.com/ximenesfel)
+This project creats and configures a docker environment for development with ROS Noetic installed. This project was created with a big help of [@ximenesfel](https://github.com/ximenesfel)
 
 - [Description](##Description)
 - [Installation](##Installation)
@@ -22,4 +22,4 @@ This is the current configuration of my machine so it is tested in these conditi
 ## Usage
 
 ## Contributing
-If you have any comment, doubt or suggestion I'll be more than happy to know than so, feel free to open a issue or a Pull Request with your collaboration.
+If you have any comment, doubt or suggestion, I'll be more than happy to know them, so, feel free to open an issue or a Pull Request with your collaboration.
