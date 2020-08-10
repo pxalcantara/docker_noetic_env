@@ -12,12 +12,12 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
 	apt-get install -y nano && \
 	apt-get install -y vim && \
 	apt-get install -y git && \
-    apt-get install -y wget && \
-    apt-get install -y curl && \
-    apt-get install -y sudo && \
-    apt-get install -y terminator && \
-    apt-get install -y bash-completion && \
-    apt-get install -y software-properties-common && \
+  apt-get install -y wget && \
+  apt-get install -y curl && \
+  apt-get install -y sudo && \
+  apt-get install -y terminator && \
+  apt-get install -y bash-completion && \
+  apt-get install -y software-properties-common && \
 	apt-get install -y apt-utils && \
 	apt-get install -y build-essential && \
 	apt-get install -y locales && \
@@ -37,7 +37,7 @@ RUN apt-get update \
     libx11-6 \
   && rm -rf /var/lib/apt/lists/*
 
-#Add .bashrc file to the docker so it starts with a constumized environment
+#Add .bashrc and .bash_aliases files to the docker so it starts with a constumized environment
 RUN rm ./root/.bashrc
 COPY .bashrc /root 
 COPY .bash_aliases /root

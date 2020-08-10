@@ -20,6 +20,9 @@ then
     chmod a+r $XAUTH
 fi
 
+#remove the container before creates other
+docker container rm noetic_env
+
 #creat the container from the image created before
 #noetic_env is the container name
 docker run -it \
