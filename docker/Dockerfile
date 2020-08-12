@@ -38,6 +38,5 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 #Add .bashrc and .bash_aliases files to the docker so it starts with a constumized environment
-RUN rm ./root/.bashrc
 COPY .bashrc /root 
 COPY .bash_aliases /root
