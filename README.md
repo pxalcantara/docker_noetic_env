@@ -46,7 +46,7 @@ If you already have docker installed and configured in your machine, just clone 
 
 
 ## Usage
- Give permission to the `run_devel.bash` script
+ Give permission to the `run_docker.bash` script
  ```
  $ chmod a+rwx run_docker.bash
  ```
