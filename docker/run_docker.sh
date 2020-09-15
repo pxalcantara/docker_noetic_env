@@ -16,10 +16,8 @@ then
     chmod a+r $XAUTH
 fi
 
-#remove the container before creates other
-# docker container rm noetic_env
-
-#creat the container from the image created before
+# creat the container from the image created before if it was not already created, otherwise, just
+# start or execute the container
 #noetic_env is the container name
 if [ ! "$(docker ps -q -f name=noetic_env)" ]; then
     if [ ! "$(docker ps -aq -f status=exited -f name=noetic_env)" ]; then
@@ -34,8 +32,11 @@ if [ ! "$(docker ps -q -f name=noetic_env)" ]; then
                 -v ~/docker_noetic_env/docker/home-host:/root/home \
                 noetic_env \
                 bash
+        echo "Container created"
     fi
+    echo "Starting the container"
     docker start -ai noetic_env
 else
+    echo "Just executing the container already started"
     docker exec -ti noetic_env /bin/bash
 fi
