@@ -18,7 +18,8 @@ This project is organized as bellow:
   - ***Dokerfile***: file to do the configuration of the docker image;
   - ***.bashrc***: costumized `bash` file that is used inside the environment when the container is created;
   - ***.bash_aliases***: file used to add some *alias* as shortcuts to help the development with this environment. This file is also copied inside the container.
-  - ***run_docker.sh***: this script configures the environment. It builds the docker image, creates the container, and access it so, if everything goes well, after the execution of this script, You'll be in the terminal inside the docker container.
+  - ***build_docker.sh***: this script configures the environment. It builds the docker image, creates the container, and access it so, if everything goes well, after the execution of this script, You'll be in the terminal inside the docker container.
+  - ***run_docker.sh***: this script checks if the container exist and start it, otherwise, run the container.
   - ***home-host***: this folder is a volume that is shared with the container. It is connected with the folder `/root/home` inside the container so, everything inside the folder `/root/home` will be also in the folder `home-host` in the host and vice-versa.   
   
   ***IMPORTANT!:*** everything that you need to keep using this environment as, source code, files, folders, **MUST** be inside the `/root/home` folder, otherwise, they'll be deleted once the image is built and the container is created again.
@@ -46,14 +47,21 @@ If you already have docker installed and configured in your machine, just clone 
 
 
 ## Usage
- Give permission to the `run_docker.bash` script
+ Give permission to the `buil_docker.sh` and `run_docker.sh` script
  ```
- $ chmod a+rwx run_docker.bash
+ $ sudo chmod a+rwx build_docker.sh && run_docker.sh
  ```
  Run the script. It'll make the configuration and, after that, You'll be inside the container. If it's the first time that you're running it, maybe it'll take some time to build the docker image and download the packages. Inside `.../docket_noetic_env/docker`, run:
  ```
- ./run_docker.bash
+ $ ./build_docker.sh
  ```
+ **IMPORTANT!!-** This script will delete and build the container again so, make sure that you updated the Dockerfile with some configuration or package that you can't lose because, if you just installed inside the environment using `apt install` o another package handler, it'll be **LOST**.
+ 
+ If you just want to start the environment again, use the script `run_docker.sh` 
+
+```
+$ ./run_devel.sh
+```
 
 ## Contributing
 If you have any comments, doubts, or suggestions, I'll be more than happy to know them, so, feel free to open an issue or a Pull Request with your collaboration.
