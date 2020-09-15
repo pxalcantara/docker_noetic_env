@@ -21,7 +21,8 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
 	apt-get install -y apt-utils && \
 	apt-get install -y build-essential && \
 	apt-get install -y locales && \
-	apt-get install -y pkg-config
+	apt-get install -y pkg-config && \
+  apt-get install -y gdb
 	
 RUN export LANGUAGE=en_US.UTF-8; \
     export LANG=en_US.UTF-8;
@@ -40,3 +41,10 @@ RUN apt-get update \
 #Add .bashrc and .bash_aliases files to the docker so it starts with a constumized environment
 COPY .bashrc /root 
 COPY .bash_aliases /root
+
+# install some extra programs
+RUN sudo add-apt-repository ppa:freecad-maintainers/freecad-stable -y && \
+    sudo apt update && \
+    sudo apt install -y freecad && \
+    sudo apt install -y python3-pip && \ 
+    sudo pip3 install pycollada  
