@@ -57,10 +57,10 @@ If you already have docker installed and configured in your machine, just clone 
  ```
  **IMPORTANT!!-** This script will delete and build the container again so, make sure that you updated the Dockerfile with some configuration or package that you can't lose because, if you just installed inside the environment using `apt install` o another package handler, it'll be **LOST**.
  
- If you just want to start the environment again, use the script `run_devel.sh` 
+ If you just want to start the environment again, use the script `run_docker.sh` 
 
 ```
-$ ./run_devel.sh
+$ ./run_docker.sh
 ```
 
 ## Contributing
