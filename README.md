@@ -60,7 +60,7 @@ If you already have docker installed and configured in your machine, just clone 
  If you just want to start the environment again, use the script `run_docker.sh` 
 
 ```
-$ ./run_devel.sh
+$ ./run_docker.sh
 ```
 
 ## Contributing
